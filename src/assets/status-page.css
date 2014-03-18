@@ -18,3 +18,10 @@
 .jumbotron.all-is-well-false {
 	background-color: #FF7B29;
 }
+
+/* Images */
+
+img.logo {
+	height:40px;
+	margin-right:20px;
+}
