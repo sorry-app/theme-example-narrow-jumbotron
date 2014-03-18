@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}">
 
         <!-- Page Title. -->
-        <title>Narrow Jumbotron Template for Bootstrap</title>
+        <title>{{ page.name }}</title>
 
         <!-- Bootstrap core CSS -->
         <link href="{{ 'bootstrap.min.css' | asset_url }}" rel="stylesheet">
@@ -33,7 +33,7 @@
     <body>
         <div class="container">
             <div class="header">
-                <h3 class="text-muted">Project name</h3>
+                <h3 class="text-muted">{{ page.name }}</h3>
             </div>
 
             <div class="jumbotron">
@@ -55,7 +55,7 @@
             </div>
 
             <div class="footer">
-                <p>&copy; Company 2014</p>
+                <p>&copy; {{ page.name }} {{ 'today' | date: "%Y" }}</p>
             </div>
 
         </div>
