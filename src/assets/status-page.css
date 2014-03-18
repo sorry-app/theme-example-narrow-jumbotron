@@ -1,0 +1,21 @@
+/*
+	These are the status page styles which adapt the narrow-jumbotron theme
+	to better fit the purpose of working as a status page.
+*/
+
+
+/* Jumbotron. */
+
+.jumbotron {
+  text-align: left;
+}
+
+.jumbotron.all-is-well {
+  background-color: #7AB800;
+  color: #FFF;
+}
+
+.jumbotron.open-apology {
+  background-color: #FF7B29;
+  color: #FFF;
+}

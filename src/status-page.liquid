@@ -20,6 +20,9 @@
         <!-- Custom styles for this template -->
         <link href="{{ 'jumbotron-narrow.css' | asset_url }}" rel="stylesheet">
 
+        <!-- Status page styles for this template. -->
+        <link href="{{ 'status-page.css' | asset_url }}" rel="stylesheet">
+
         <!-- Just for debugging purposes. Don't actually copy this line! -->
         <!--[if lt IE 9]><script src="{{ 'ie8-responsive-file-warning.js' | asset_url }}"></script><![endif]-->
 
@@ -33,40 +36,37 @@
     <body>
         <div class="container">
             <div class="header">
+                <!-- Use the page name as the title for the page. -->
                 <h3 class="text-muted">{{ page.name }}</h3>
             </div>
 
             <div class="jumbotron">
-                <!-- Check to see if we have any apologies to display. -->
-                {% if page.apologies.current.size > 0 %}
-                    <!-- We have current apologies to display. -->
-                    <!-- Loop over the current apologies. -->
-                    {% for apology in page.apologies.current %}
-                        <!-- Put the core apology details down. -->
-                        <p class="lead">
+                <!-- Loop over the current apologies. -->
+                {% for apology in page.apologies.current %}
+                    <!-- Put the core apology details down. -->
+                    <p class="lead">
+                        <!-- Date posted. -->
+                        <time>{{ apology.created_at | time_ago_in_words }} ago</time> 
+                        
+                        <!-- Description of the problem. -->
+                        {{ apology.description }}
+                    </p>
+
+                    <!--- Loop over any updates for the apology. -->
+                    {% for update in apology.updates %}
+                        <!-- Put out the details of the update. -->
+                        <p class="update">
                             <!-- Date posted. -->
-                            <time>{{ apology.created_at | time_ago_in_words }} ago</time> 
-                            
-                            <!-- Description of the problem. -->
-                            {{ apology.description }}
+                            <time>{{ update.created_at | time_ago_in_words }} ago - </time> 
+
+                            <!-- Comment for the update. -->
+                            {{ update.content }}
                         </p>
-
-                        <!--- Loop over any updates for the apology. -->
-                        {% for update in apology.updates %}
-                            <!-- Put out the details of the update. -->
-                            <p class="update">
-                                <!-- Date posted. -->
-                                <time>{{ update.created_at | time_ago_in_words }} ago - </time> 
-
-                                <!-- Comment for the update. -->
-                                {{ update.content }}
-                            </p>
-                        {% endfor %}
                     {% endfor %}
                 {% else %}
                     <!-- No current apologies, put out an all is well. -->
                     <h1>All Is Well</h1>
-                {% endif %}
+                {% endfor %}
             </div>
 
             <div class="row marketing">
