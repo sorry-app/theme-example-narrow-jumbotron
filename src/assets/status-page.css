@@ -7,15 +7,14 @@
 /* Jumbotron. */
 
 .jumbotron {
-  text-align: left;
+	text-align: left;
+	color: #FFF;
 }
 
-.jumbotron.all-is-well {
-  background-color: #7AB800;
-  color: #FFF;
+.jumbotron.all-is-well-true {
+	background-color: #7AB800;
 }
 
-.jumbotron.open-apology {
-  background-color: #FF7B29;
-  color: #FFF;
+.jumbotron.all-is-well-false {
+	background-color: #FF7B29;
 }
