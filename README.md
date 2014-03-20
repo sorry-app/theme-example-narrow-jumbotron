@@ -11,6 +11,14 @@
 1. <a href="https://github.com/supporttime/theme-example-narrow-jumbotron/archive/master.zip">Download</a> the latest version
 2. or clone the git repo: <code>git clone https://github.com/supporttime/theme-example-narrow-jumbotron</code>
 
+## Deploying The Theme
+
+### Manually Upload The Zip
+
+The simplest option if you don't wish to make any changes to the theme is to upload the [zip file found in the dist folder](dist/theme.zip) through your user interface of your Sorry account.
+
+**If you make any changes you'll need to rezip your theme before you upload it, [as per our guide](http://docs.sorryapp.com/getting-started/uploading-your-theme.html).**
+
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
