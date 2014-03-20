@@ -6,6 +6,11 @@
 >
 > **For more details on theme development, read our [Theme documenation](http://docs.sorryapp.com/themes)**.
 
+## Getting started
+
+1. <a href="https://github.com/supporttime/theme-example-narrow-jumbotron/archive/master.zip">Download</a> the latest version
+2. or clone the git repo: <code>git clone https://github.com/supporttime/theme-example-narrow-jumbotron</code>
+
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
