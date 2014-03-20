@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       },
       theme: {
         files: 'src/**/*',
-        tasks: ['sorry_theme'],
+        tasks: ['sorry_theme_deploy'],
         options: {
           interrupt: true,
         }
@@ -44,15 +44,16 @@ module.exports = function(grunt) {
     sorry: grunt.file.readJSON('sorry.json'),
 
     // Sorry theme deployment.
-    sorry_theme: {
-      default_options: {
-        options: {
-          username: '<%= sorry.username %>',
-          password: '<%= sorry.password %>',
-          page_id: 'my-first-status-page',
-          host: 'api.lvh.me',
-          port: 3000
-        }
+    sorry_theme_deploy: {
+      options: {
+        username: '<%= sorry.username %>',
+        password: '<%= sorry.password %>',
+        page: 'YOUR PAGE NAME GOES HERE'
+      },     
+      valid_theme: {
+        expand: true,
+        cwd: 'src/',
+        src: ['**/*']
       }
     },
   });
@@ -60,9 +61,9 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-sorry-theme');
+  grunt.loadNpmTasks('grunt-sorry-theme-deploy');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'sorry_theme']);
+  grunt.registerTask('default', ['jshint', 'sorry_theme_deploy']);
 
 };
