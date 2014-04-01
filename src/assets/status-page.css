@@ -19,10 +19,33 @@
 	background-color: #FF7B29;
 }
 
+/* Apologies. */
+
+.apology {
+	border-bottom:1px solid rgba(255, 255, 255, 0.2);
+	padding-bottom:32px;
+	margin-bottom:32px;
+}
+
+.apology:last-child {
+	border:none;
+	padding-bottom:0;
+	margin-bottom:0;
+}
+
+.current-apology p:not(:first-child) {
+	font-size:16px;
+}
+
 /* Typography */
 
 time {
 	display:block;
+}
+
+.text-muted {
+	color:inherit;
+	opacity:0.75;
 }
 
 /* Images */

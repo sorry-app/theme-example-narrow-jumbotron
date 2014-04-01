@@ -50,17 +50,19 @@
             <div class="jumbotron all-is-well-{% if page.apologies.current == empty %}true{% else %}false{% endif %}">
                 <!-- Loop over the current apologies. -->
                 {% for apology in page.apologies.current %}
-                    <!--- Loop over any updates for the apology. -->
-                    {% for update in apology.updates reversed %}
-                        <!-- Put out the details of the update. -->
-                        <p class="update">
-                            <!-- Date posted. -->
-                            <time>{{ update.created_at | time_ago_in_words }} ago</time> 
+                    <div class="apology current-apology">
+                        <!--- Loop over any updates for the apology. -->
+                        {% for update in apology.updates reversed %}
+                            <!-- Put out the details of the update. -->
+                            <p class="update">
+                                <!-- Date posted. -->
+                                <time class="text-muted">{{ update.created_at | time_ago_in_words }} ago</time> 
 
-                            <!-- Comment for the update. -->
-                            {{ update.content }}
-                        </p>
-                    {% endfor %} 
+                                <!-- Comment for the update. -->
+                                {{ update.content }}
+                            </p>
+                        {% endfor %}
+                    </div>
                 {% else %}
                     <!-- No current apologies, put out an all is well. -->
                     <h1>All Is Well</h1>
