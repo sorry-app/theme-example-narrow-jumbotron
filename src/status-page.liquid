@@ -50,17 +50,8 @@
             <div class="jumbotron all-is-well-{% if page.apologies.current == empty %}true{% else %}false{% endif %}">
                 <!-- Loop over the current apologies. -->
                 {% for apology in page.apologies.current %}
-                    <!-- Put the core apology details down. -->
-                    <p class="lead">
-                        <!-- Date posted. -->
-                        <time>{{ apology.created_at | time_ago_in_words }} ago</time> 
-                        
-                        <!-- Description of the problem. -->
-                        {{ apology.description }}
-                    </p>
-
                     <!--- Loop over any updates for the apology. -->
-                    {% for update in apology.updates %}
+                    {% for update in apology.updates reversed %}
                         <!-- Put out the details of the update. -->
                         <p class="update">
                             <!-- Date posted. -->
@@ -69,7 +60,7 @@
                             <!-- Comment for the update. -->
                             {{ update.content }}
                         </p>
-                    {% endfor %}
+                    {% endfor %} 
                 {% else %}
                     <!-- No current apologies, put out an all is well. -->
                     <h1>All Is Well</h1>
@@ -83,9 +74,7 @@
                         <!-- The basic apology details. -->
                         <h4>
                             <!-- Date posted. -->
-                            <time>{{ apology.created_at | date: '%A %B %d %Y %I:%M %p' }}</time>
-                            <!-- Description of the problem. -->
-                            {{ apology.description }}
+                            Started: <time>{{ apology.created_at | date: '%-d %B %R' }}</time>
                         </h4>
 
                         <!-- Any updates for this apology. -->
@@ -93,12 +82,17 @@
                             <!-- Put out the details of the update. -->
                             <p>
                                 <!-- Date posted. -->
-                                <time class="text-muted">{{ update.created_at | date: '%I:%M %p' }}</time> 
+                                <time class="text-muted">{{ update.created_at | date: '%-d %B - %R' }}</time> 
 
                                 <!-- Comment for the update. -->
                                 {{ update.content }}
                             </p>
                         {% endfor %}
+
+                        <!-- Closed details. -->
+                        <p>
+                            Ended: <time>{{ apology.closed_at | date: '%-d %B %R' }}</time>
+                        </p>
                     {% endfor %}
                 </div>
             </div>
