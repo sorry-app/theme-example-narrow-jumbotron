@@ -55,7 +55,7 @@
                         <!-- Put out the details of the update. -->
                         <p class="update">
                             <!-- Date posted. -->
-                            <time>{{ update.created_at | time_ago_in_words }} ago - </time> 
+                            <time>{{ update.created_at | time_ago_in_words }} ago</time> 
 
                             <!-- Comment for the update. -->
                             {{ update.content }}
@@ -74,7 +74,7 @@
                         <!-- The basic apology details. -->
                         <h4>
                             <!-- Date posted. -->
-                            Started: <time>{{ apology.created_at | date: '%-d %B %R' }}</time>
+                            <time>Started: {{ apology.created_at | date: '%-d %B %R' }}</time>
                         </h4>
 
                         <!-- Any updates for this apology. -->
@@ -91,7 +91,7 @@
 
                         <!-- Closed details. -->
                         <p>
-                            Ended: <time>{{ apology.closed_at | date: '%-d %B %R' }}</time>
+                            <time><strong>Ended: {{ apology.closed_at | date: '%-d %B %R' }}</strong></time>
                         </p>
                     {% endfor %}
                 </div>
