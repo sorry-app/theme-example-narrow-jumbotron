@@ -73,28 +73,30 @@
                 <div class="col-lg-12">
                     <!-- Output any recent but now closed apologies. -->
                     {% for apology in page.apologies.recent %}
-                        <!-- The basic apology details. -->
-                        <h4>
-                            <!-- Date posted. -->
-                            <time>Started: {{ apology.created_at | date: '%-d %B %R' }}</time>
-                        </h4>
-
-                        <!-- Any updates for this apology. -->
-                        {% for update in apology.updates %}
-                            <!-- Put out the details of the update. -->
-                            <p>
+                        <div class="apology">
+                            <!-- The basic apology details. -->
+                            <h4>
                                 <!-- Date posted. -->
-                                <time class="text-muted">{{ update.created_at | date: '%-d %B - %R' }}</time> 
+                                <time>Started: {{ apology.created_at | date: '%-d %B %R' }}</time>
+                            </h4>
 
-                                <!-- Comment for the update. -->
-                                {{ update.content }}
+                            <!-- Any updates for this apology. -->
+                            {% for update in apology.updates %}
+                                <!-- Put out the details of the update. -->
+                                <p>
+                                    <!-- Date posted. -->
+                                    <time class="text-muted">{{ update.created_at | date: '%-d %B - %R' }}</time> 
+
+                                    <!-- Comment for the update. -->
+                                    {{ update.content }}
+                                </p>
+                            {% endfor %}
+
+                            <!-- Closed details. -->
+                            <p>
+                                <time><strong>Ended: {{ apology.closed_at | date: '%-d %B %R' }}</strong></time>
                             </p>
-                        {% endfor %}
-
-                        <!-- Closed details. -->
-                        <p>
-                            <time><strong>Ended: {{ apology.closed_at | date: '%-d %B %R' }}</strong></time>
-                        </p>
+                        </div>
                     {% endfor %}
                 </div>
             </div>
