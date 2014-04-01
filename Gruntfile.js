@@ -26,6 +26,10 @@ module.exports = function(grunt) {
 
     // Javascript validation.
     jshint: {
+      options: {
+        // Ignore minified assets.
+        ignores: ["src/assets/*.min.js"]
+      },
       // Validate the gruntfile and theme src.
       all: ["Gruntfile.js", "src/assets/*.js"]
     },
