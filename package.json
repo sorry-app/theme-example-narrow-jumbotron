@@ -1,11 +1,33 @@
 {
+  "name": "theme-example-narrow-jumbotron",
+  "description": "This is an example status page theme based on Bootstrap's Narrow Jumbotron.",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sorry-app/theme-example-narrow-jumbotron",
+  "author": {
+    "name": "Robert Rawlins",
+    "email": "robert@sorryapp.com"
+  },
+  "contributors": [
+    {
+      "name": "Robin Geall",
+      "email": "robin@sorryapp.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sorry-app/theme-example-narrow-jumbotron.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sorry-app/theme-example-narrow-jumbotron/issues"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.2",
+    "grunt-sorry-theme-deploy": "1.0.0",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-sorry-theme-deploy": "0.1.1"
+    "grunt-release": "^0.7.0"
   }
 }
