@@ -1,7 +1,7 @@
 {
   "name": "theme-example-narrow-jumbotron",
   "description": "This is an example status page theme based on Bootstrap's Narrow Jumbotron.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/sorry-app/theme-example-narrow-jumbotron",
   "author": {
     "name": "Robert Rawlins",
