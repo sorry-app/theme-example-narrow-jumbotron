@@ -8,7 +8,7 @@
 
 ## Getting The Theme
 
-1. <a href="archive/master.zip">Download</a> the latest version
+1. <a href="https://github.com/sorry-app/theme-example-narrow-jumbotron/archive/master.zip">Download</a> the latest version
 2. or clone the git repo: <code>git clone git@github.com:sorry-app/theme-example-narrow-jumbotron.git</code>
 
 ## Manual Deployment
