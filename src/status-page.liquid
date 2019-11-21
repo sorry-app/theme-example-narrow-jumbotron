@@ -51,25 +51,28 @@
 
             <!-- Switch the jumbotron class based on the page state for some useful colouring. -->
             <div class="jumbotron all-is-well-{% if page.notices.current == empty %}true{% else %}false{% endif %}">
-                <!-- Loop over the current notices. -->
-                {% for notice in page.notices.current %}
-                    <div class="apology current-apology">
-                        <!--- Loop over any updates for the notice. -->
-                        {% for update in notice.updates reversed %}
-                            <!-- Put out the details of the update. -->
-                            <p class="update">
-                                <!-- Date posted. -->
-                                <time class="text-muted">{{ update.created_at | time_ago_in_words }} ago</time>
+              <!-- Check if there are current notices. -->
+              {% if page.notices.current.size > 0 %}
+                  <!-- Loop over the current notices. -->
+                  {% for notice in page.notices.current %}
+                      <div class="apology current-apology">
+                          <!--- Loop over any updates for the notice. -->
+                          {% for update in notice.updates reversed %}
+                              <!-- Put out the details of the update. -->
+                              <p class="update">
+                                  <!-- Date posted. -->
+                                  <time class="text-muted">{{ update.created_at | time_ago_in_words }} ago</time>
 
-                                <!-- Comment for the update. -->
-                                {{ update.content }}
-                            </p>
-                        {% endfor %}
-                    </div>
+                                  <!-- Comment for the update. -->
+                                  {{ update.content }}
+                              </p>
+                          {% endfor %}
+                      </div>
+                  {% endfor %}
                 {% else %}
                     <!-- No current notices, put out an all is well. -->
                     <h1>All Is Well</h1>
-                {% endfor %}
+                {% endif %}
             </div>
 
             <div class="row marketing">
