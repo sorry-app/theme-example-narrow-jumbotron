@@ -32,7 +32,7 @@
         <!-- Just for debugging purposes. Don't actually copy this line! -->
         <!--[if lt IE 9]><script src="{{ 'ie8-responsive-file-warning.js' | asset_url }}"></script><![endif]-->
 
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --> 
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -50,45 +50,48 @@
             </div>
 
             <!-- Switch the jumbotron class based on the page state for some useful colouring. -->
-            <div class="jumbotron all-is-well-{% if page.apologies.current == empty %}true{% else %}false{% endif %}">
-                <!-- Loop over the current apologies. -->
-                {% for apology in page.apologies.current %}
-                    <div class="apology current-apology">
-                        <!--- Loop over any updates for the apology. -->
-                        {% for update in apology.updates reversed %}
-                            <!-- Put out the details of the update. -->
-                            <p class="update">
-                                <!-- Date posted. -->
-                                <time class="text-muted">{{ update.created_at | time_ago_in_words }} ago</time> 
+            <div class="jumbotron all-is-well-{% if page.notices == empty %}true{% else %}false{% endif %}">
+              <!-- Check if there are current notices. -->
+              {% if page.notices.size > 0 %}
+                  <!-- Loop over the notices. -->
+                  {% for notice in page.notices %}
+                      <div class="apology current-apology">
+                          <!--- Loop over any updates for the notice. -->
+                          {% for update in notice.updates reversed %}
+                              <!-- Put out the details of the update. -->
+                              <p class="update">
+                                  <!-- Date posted. -->
+                                  <time class="text-muted">{{ update.created_at | time_ago_in_words }} ago</time>
 
-                                <!-- Comment for the update. -->
-                                {{ update.content }}
-                            </p>
-                        {% endfor %}
-                    </div>
+                                  <!-- Comment for the update. -->
+                                  {{ update.content }}
+                              </p>
+                          {% endfor %}
+                      </div>
+                  {% endfor %}
                 {% else %}
-                    <!-- No current apologies, put out an all is well. -->
+                    <!-- No notices, put out an all is well. -->
                     <h1>All Is Well</h1>
-                {% endfor %}
+                {% endif %}
             </div>
 
             <div class="row marketing">
                 <div class="col-lg-12">
-                    <!-- Output any recent but now closed apologies. -->
-                    {% for apology in page.apologies.recent %}
+                    <!-- Output any past_recent but now closed notices. -->
+                    {% for notice in page.notices.past_recent %}
                         <div class="apology">
-                            <!-- The basic apology details. -->
+                            <!-- The basic notice details. -->
                             <h4>
                                 <!-- Date posted. -->
-                                <time>Started: {{ apology.created_at | date: '%-d %B %R' }}</time>
+                                <time>Started: {{ notice.created_at }}</time>
                             </h4>
 
-                            <!-- Any updates for this apology. -->
-                            {% for update in apology.updates %}
+                            <!-- Any updates for this notice. -->
+                            {% for update in notice.updates %}
                                 <!-- Put out the details of the update. -->
                                 <p>
                                     <!-- Date posted. -->
-                                    <time class="text-muted">{{ update.created_at | date: '%-d %B - %R' }}</time> 
+                                    <time class="text-muted">{{ update.created_at }}</time>
 
                                     <!-- Comment for the update. -->
                                     {{ update.content }}
@@ -97,7 +100,7 @@
 
                             <!-- Closed details. -->
                             <p>
-                                <time><strong>Ended: {{ apology.closed_at | date: '%-d %B %R' }}</strong></time>
+                                <time><strong>Ended: {{ notice.closed_at }}</strong></time>
                             </p>
                         </div>
                     {% endfor %}
@@ -106,7 +109,7 @@
 
             <div class="footer">
                 <!-- Copyright notice. -->
-                <p>&copy; {{ page.name }} {{ 'today' | date: "%Y" }}</p>
+                <p>&copy; {{ page.name }}</p>
             </div>
 
         </div>
