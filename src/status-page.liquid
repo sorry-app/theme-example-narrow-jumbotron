@@ -50,11 +50,11 @@
             </div>
 
             <!-- Switch the jumbotron class based on the page state for some useful colouring. -->
-            <div class="jumbotron all-is-well-{% if page.notices.current == empty %}true{% else %}false{% endif %}">
+            <div class="jumbotron all-is-well-{% if page.notices == empty %}true{% else %}false{% endif %}">
               <!-- Check if there are current notices. -->
-              {% if page.notices.current.size > 0 %}
-                  <!-- Loop over the current notices. -->
-                  {% for notice in page.notices.current %}
+              {% if page.notices.size > 0 %}
+                  <!-- Loop over the notices. -->
+                  {% for notice in page.notices %}
                       <div class="apology current-apology">
                           <!--- Loop over any updates for the notice. -->
                           {% for update in notice.updates reversed %}
@@ -70,15 +70,15 @@
                       </div>
                   {% endfor %}
                 {% else %}
-                    <!-- No current notices, put out an all is well. -->
+                    <!-- No notices, put out an all is well. -->
                     <h1>All Is Well</h1>
                 {% endif %}
             </div>
 
             <div class="row marketing">
                 <div class="col-lg-12">
-                    <!-- Output any recent but now closed notices. -->
-                    {% for notice in page.notices.recent %}
+                    <!-- Output any past_recent but now closed notices. -->
+                    {% for notice in page.notices.past_recent %}
                         <div class="apology">
                             <!-- The basic notice details. -->
                             <h4>
