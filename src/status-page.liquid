@@ -83,7 +83,7 @@
                             <!-- The basic notice details. -->
                             <h4>
                                 <!-- Date posted. -->
-                                <time>Started: {{ notice.created_at | date: '%-d %B %R' }}</time>
+                                <time>Started: {{ notice.created_at }}</time>
                             </h4>
 
                             <!-- Any updates for this notice. -->
@@ -91,7 +91,7 @@
                                 <!-- Put out the details of the update. -->
                                 <p>
                                     <!-- Date posted. -->
-                                    <time class="text-muted">{{ update.created_at | date: '%-d %B - %R' }}</time>
+                                    <time class="text-muted">{{ update.created_at }}</time>
 
                                     <!-- Comment for the update. -->
                                     {{ update.content }}
@@ -100,7 +100,7 @@
 
                             <!-- Closed details. -->
                             <p>
-                                <time><strong>Ended: {{ notice.closed_at | date: '%-d %B %R' }}</strong></time>
+                                <time><strong>Ended: {{ notice.closed_at }}</strong></time>
                             </p>
                         </div>
                     {% endfor %}
@@ -109,7 +109,7 @@
 
             <div class="footer">
                 <!-- Copyright notice. -->
-                <p>&copy; {{ page.name }} {{ 'today' | date: "%Y" }}</p>
+                <p>&copy; {{ page.name }}</p>
             </div>
 
         </div>
